@@ -1,0 +1,59 @@
+<div class="box">
+
+	<h4 class="box-header round-top">Getters en setters aanmaken voor een model</h4>
+	
+	<div class="box-container-toggle">
+	
+		<div class="box-content">
+		
+		    <?php if ($this->output): ?> 
+		        <textarea style="width: 100%; height: 250px;"><?php echo $this->output; ?></textarea> 
+		    <?php endif; ?>
+		
+			<dl>
+		
+			<dt>Aantal variabelen</dt>
+			<dd>
+		        <select name="number" id="number"> 
+		            <?php for ($i=1; $i<=30; $i++): ?> 
+		                <option value="<?php echo $i; ?>"<?php echo ($this->number==$i?'selected="selected"':''); ?>><?php echo $i.' '.($i<2?'variabele':'variabelen'); ?></option> 
+		            <?php endfor; ?> 
+		        </select>
+	        </dd>
+	        
+	        </dl>
+	        
+		    <form method="post" action="<?php echo $this->createUrl('admin', 'getset', 'index', array('number' => $this->number)); ?>"> 
+		          
+		        <input type="hidden" name="int[0]" value="int" />
+		        
+		        <dl>
+		        
+			        <?php for ($i=1; $i<=$this->number; $i++): ?>
+			            <dt>Naam:</dt>
+						<dd><input type="text" name="names[<?php echo $i; ?>]" <?php echo (isset($this->names[$i])?'value="'.$this->names[$i].'" ':''); ?>/><br />
+			            <label><input type="checkbox" name="int[<?php echo $i; ?>]" value="int" <?php echo (isset($this->int[$i])?'checked="checked" ':''); ?>/> Integer</label></dd>
+			        <?php endfor; ?>
+				
+				</dl>
+		          
+		        <input type="submit" value="Genereer" />
+			    
+		    </form>
+		    
+		</div>
+		
+	</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+	$('#number').change(function(){
+		$value = $(this).val();
+		window.location.replace("<?php echo $this->createUrl('admin', 'getset', 'index'); ?>number/"+$value);
+	});
+});
+
+</script>

@@ -1,0 +1,19 @@
+<form method="post" action="<?php echo $this->createUrl('front', 'filecreator') ?>">
+	Aantal:<br />
+	<select name="actions">
+		<?php for ($i=1; $i<=20; $i++): ?>
+			<option value="<?php echo $i ?>" <?php if ($this->numberActions == $i) echo "selected"; ?>><?php echo $i ?> actions</option>
+		<?php endfor; ?>
+	</select><br />
+	<input type="submit" />
+</form>
+
+<br /><br />
+
+<form method="post" action="<?php echo $this->createUrl('front', 'filecreator', 'create') ?>">
+	Controller: <input type="text" name="controller" /><br />
+	<?php for ($i=1; $i<=$this->numberActions; $i++): ?>
+		Action <?php echo $i ?>: <input type="text" name="actions[]" /><br />
+	<?php endfor; ?>
+	<input type="submit" />
+</form>

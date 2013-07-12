@@ -1,0 +1,139 @@
+<div class="center hand">
+
+	<img src="/graphics/layout/hand.png" />
+
+</div>
+
+<div class="content_split left">
+
+	<h1>Contact details</h1>
+	<br />
+	
+	<div style="padding-left: 10px;">
+		<img src="/graphics/layout/icons/name.png" style="float: left; margin-right: 15px; margin-top: 5px;" />
+		<h4>Name</h4>
+		<p>Floris Thijs</p>
+		<br />
+		<img src="/graphics/layout/icons/phone.png" style="float: left; margin-right: 15px; margin-top: 5px;" />
+		<h4>Phone number</h4>
+		<p><a id="phone">(0032) (0)478 618 466</a></p>
+		<br />
+		<img src="/graphics/layout/icons/email.png" style="float: left; margin-right: 15px; margin-top: 5px;" />
+		<h4>Email address</h4>
+		<p><a href="mailto:contact@floristhijs.be" title="Send me a mail">contact@floristhijs.be</a></p>
+		<br />
+		<img src="/graphics/layout/icons/skype.png" style="float: left; margin-right: 15px; margin-top: 5px;" />
+		<h4>Skype</h4>
+		<p><a href="skype:kianoob?add" title="Add me to skype">kianoob</a></p>
+	</div>
+
+</div>
+
+<form name="contact" id="contact" method="post" action="">
+<div class="content_split">
+
+	<h1>Contact form</h1>
+	<br />
+	<p>
+		If you don't like calling, skyping or sending a direct mail, you can get in touch with me with the help of this form.
+	</p>
+	<br />
+	<?php if (!isset($this->success)): ?>
+		<div style="width: 50%; float: left;">
+			<label><h4>Name</h4>
+			<p>
+				<input type="text" name="name" id="name" placeholder="Michael Bay"<?php if (isset($_POST['name'])) echo ' value="'.$_POST['name'].'"'; ?> />
+				<div id="name_error" class="error"<?php if (isset($this->error['name'])) echo ' style="display: block;"'; ?>>I would like to know your name.</div>
+			</p></label>
+		</div>
+		<div style="width: 50%; float: left;">
+			<label><h4>Email address</h4>
+			<p>
+				<input type="text" name="emailaddress" id="emailaddress" placeholder="michael@example.com"<?php if (isset($_POST['emailaddress'])) echo ' value="'.$_POST['emailaddress'].'"'; ?> />
+				<div id="emailaddress_error" class="error"<?php if (isset($this->error['emailaddress'])) echo ' style="display: block;"'; ?>>How can I reply without your valid email address?</div>
+			</p></label>
+		</div>
+		<div class="clear"></div>
+		<label><h4>Your message</h4>
+		<p>
+			<textarea name="message" id="message" placeholder='I want to hire you for the next "Transformers"...'><?php if (isset($_POST['message'])) echo $_POST['message']; ?></textarea>
+				<div id="message_error" class="error"<?php if (isset($this->error['message'])) echo ' style="display: block;"'; ?>>An empty email doesn't have much meaning, does it?</div>
+		</p></label>
+		<p>
+			<input type="submit" name="submit" class="button" id="submit" value="Get in touch!" />
+		</p>
+	<?php else: ?>
+		<label><h4>Success</h4></label>
+		<p>
+			Thank you for your email, it has successfully been sent.<br />
+			You will receive a copy of the mail.<br />
+			I will get in touch as soon as possible.
+		</p>
+	<?php endif; ?>
+
+</div>
+</form>
+<div id="test"></div>
+<div class="clear"></div>
+
+<script>
+if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+	$('#phone').attr('href', 'tel:+32478618466');
+} else {
+	$('#phone').attr('href', 'callto:0032478618466');
+}
+
+$(document).ready(function(){
+	$('[placeholder]').focus(function() {
+		var input = $(this);
+		if (input.val() == input.attr('placeholder')) {
+			input.val('');
+			input.removeClass('placeholder');
+		};
+	}).blur(function() {
+		var input = $(this);
+		if (input.val() == '' || input.val() == input.attr('placeholder')) {
+			input.addClass('placeholder');
+			input.val(input.attr('placeholder'));
+		}
+	}).blur().parents('form').submit(function() {
+		$(this).find('[placeholder]').each(function() {
+			var input = $(this);
+			if (input.val() == input.attr('placeholder')) {
+				input.val('');
+			}
+		});
+	});
+	
+	$('textarea').focus(function(){
+		$(this).addClass('focus');
+	});
+	$('textarea').blur(function(){
+		if (!$.trim($('textarea').val()) || $('textarea').val() == $('textarea').attr('placeholder')) {
+			$(this).removeClass('focus');
+		};
+	});
+	
+	$("form").submit(function(e){
+		var error = 0;
+		if (!$.trim($('#name').val())) {
+			$('#name_error').fadeIn(500); var error = 1;
+		} else {
+			$('#name_error').fadeOut(500);
+		}
+		if (!$.trim($('#emailaddress').val())) {
+			$('#emailaddress_error').fadeIn(500); var error = 1;
+		} else {
+			$('#emailaddress_error').fadeOut(500);
+		}
+		if (!$.trim($('#message').val())) {
+			$('#message_error').fadeIn(500); var error = 1;
+		} else {
+			$('#message_error').fadeOut(500);
+		}
+		if (error == 1) {
+			e.preventDefault();
+		}
+	});
+});
+</script>

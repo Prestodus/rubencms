@@ -1,0 +1,88 @@
+<div id="slider_container">
+
+	<div class="slider-wrapper">
+
+		<div id="slider" class="nivoSlider">
+
+			<?php foreach ($this->images as $image): ?>
+				<img src="/<?php echo $image ?>" />
+			<?php endforeach; ?>
+			
+		</div>
+
+	</div>
+	
+</div>
+
+<div class="content_split left">
+
+	<h1>About me</h1>
+	<br />
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus risus nulla, vitae tempus augue. Suspendisse facilisis tortor non urna porta suscipit.
+		Fusce sit amet leo et sapien elementum consequat. Phasellus vel libero eget risus mollis tempor. Ut adipiscing sem et magna sagittis vitae hendrerit elit ultricies.
+		Quisque pharetra adipiscing augue, aliquet viverra dolor varius vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+		
+		Nunc non eros quam. Aenean sed est felis, non sodales libero. Nam non ipsum eget purus adipiscing tincidunt ac id sem. Nam in eros urna, vitae sollicitudin lacus.
+		Praesent et tortor sem. Duis vestibulum malesuada convallis. Vivamus rutrum libero non orci porttitor a elementum ligula tincidunt.
+		
+		Fusce et felis lacus. Nulla faucibus, sem in rutrum dignissim, nisl ante dapibus neque, a luctus augue orci eget elit. Maecenas id lectus sem.
+		Morbi suscipit, velit ut tincidunt mattis, dui ipsum fringilla felis, quis bibendum nulla leo ac felis. Sed lacus magna, auctor et varius sed, malesuada sit amet magna.
+		Maecenas pulvinar tempus purus, egestas ullamcorper lorem luctus auctor. Etiam mollis commodo nisl sit amet gravida. Mauris a nisi luctus odio malesuada tempor ut ultricies arcu.
+		Donec consequat, nisi tristique euismod mattis, quam nibh fringilla sapien, sit amet rhoncus felis velit et dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Pellentesque quis dui ac nisi tempor dictum.
+	</p>
+
+</div>
+
+<div class="content_split">
+
+	<h1>How can I help you?</h1>
+	<br />
+	<h4>I can do your <span style="text-decoration: line-through;"><?php $items = array("laundry", "dishes", "homework", "cleaning", "vacuuming", "groceries"); echo $items[rand(0, count($items) - 1)]; ?></span> Visual Effects</h4>
+	
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget volutpat lorem. In tincidunt ligula quis nunc volutpat mattis.
+		Vestibulum sem arcu, aliquam sed ultricies id, blandit vel nunc. Nam nisl dolor, pretium et elementum a, feugiat nec mauris.
+		Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+	</p>
+	<br />
+	<h4>Need some 3D?</h4>
+	
+	<p>
+		I am a 3D artist with knowledge of Newtek Lightwave 3D and Autodesk 3DS Max.
+		Polygons, textures, particles,... are no strangers to me.
+	</p>
+	<br />
+	<h4>Motion Design all the way</h4>
+	
+	<p>
+		Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+		Morbi hendrerit, eros vel congue fringilla, quam lorem gravida mi, et consectetur est quam nec tortor. Mauris elementum pretium gravida.
+		Proin feugiat, risus in tristique sollicitudin, mauris nunc vulputate sem, nec luctus odio eros eu est. Sed in quam diam.
+	</p>
+
+</div>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect: 'slideInRight', // Specify sets like: 'fold,fade,sliceDown'
+		animSpeed: 500, // Slide transition speed
+		pauseTime: 5500, // How long each slide will show
+		startSlide: 0, // Set starting Slide (0 index)
+		controlNavThumbs: false, // Use thumbnails for Control Nav
+		directionNav: true, // Next & Prev navigation
+		controlNav: true, // 1,2,3... navigation
+		pauseOnHover: false, // Stop animation while hovering
+		manualAdvance: false, // Force manual transitions
+		prevText: '<', // Prev directionNav text
+		nextText: '>', // Next directionNav text
+		randomStart: true // Start on a random slide
+	});
+});
+
+</script>

@@ -1,0 +1,28 @@
+<?php $this->__render('scripts/admin/headadmin/acl/pills'); ?>
+
+<div class="box">
+
+	<h4 class="box-header round-top">Gebruikers</h4>
+	<div class="box-container-toggle">
+		<div class="box-content">
+			<?php foreach ($this->admins as $admin): ?>
+				<dl class="show-actions">
+					<dt>
+						<?php echo $admin->getFullname(); ?> (<?php echo $admin->getRolename(); ?>)
+						<span class="actions">
+							<?php if ($admin->getId() != 1): ?><a href="#">De-activeer</a> &nbsp; <?php endif; ?>
+							<a href="#">Bewerk</a>
+							<?php if ($admin->getId() != 1): ?> &nbsp; <a href="#">Verwijder</a><?php endif; ?>
+						</span>
+					</dt>
+					<dd>
+						<?php if ($admin->getRoleid() != 0): ?>Permissies: <?php echo implode(', ', $admin->getPermissions()); ?><br /><?php endif; ?>
+						Account aangemaakt op <?php echo date('d/m/Y \o\m H:i', strtotime($admin->getCreated())); ?>.
+					</dd>
+				</dl>
+			<?php endforeach; ?>
+			
+		</div>
+	</div>
+
+</div>

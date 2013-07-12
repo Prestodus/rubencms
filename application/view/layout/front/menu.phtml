@@ -1,0 +1,10 @@
+<div class="tab <?php if ($this->thisPage('front', 'index', 'index')): ?>tab_left_active<?php else: ?>tab_left_nonactive<?php endif; ?>" id="tab_left">
+	<a style="display: block;" title="Home" href="<?php echo $this->createUrl() ?>">Home</a>
+</div>
+<div class="tab <?php if ($this->thisPage('front', 'portfolio', 'index')): ?>tab_middle_active<?php else: ?>tab_middle_nonactive<?php endif; ?>" id="tab_middle">
+	<a style="display: block;" title="Portfolio" href="<?php echo $this->createUrl('front', 'portfolio', 'index') ?>">Portfolio</a>
+</div>
+<div class="tab <?php if ($this->thisPage('front', 'index', 'contact')): ?>tab_right_active<?php else: ?>tab_right_nonactive<?php endif; ?>" id="tab_right">
+	<a style="display: block;" title="Contact" href="<?php echo $this->createUrl('front', 'index', 'contact') ?>">Contact</a>
+</div>
+<div class="clear"></div>

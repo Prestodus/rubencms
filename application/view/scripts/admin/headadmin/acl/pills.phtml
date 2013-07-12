@@ -1,0 +1,5 @@
+<ul class="nav nav-pills">
+	<li<?php if ($this->thisPage('admin', 'headadmin', 'acl')) echo ' class="active"' ?>><a href="<?php echo $this->createUrl('admin', 'headadmin', 'acl'); ?>">Overzicht</a></li>
+	<li<?php if ($this->thisPage('admin', 'headadmin', 'acl_users')) echo ' class="active"' ?>><a href="<?php echo $this->createUrl('admin', 'headadmin', 'acl_users'); ?>">Gebruikers</a></li>
+	<li<?php if ($this->thisPage('admin', 'headadmin', 'acl_roles')) echo ' class="active"' ?>><a href="<?php echo $this->createUrl('admin', 'headadmin', 'acl_roles'); ?>">Groepen</a></li>
+</ul>

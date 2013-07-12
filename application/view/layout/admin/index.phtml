@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<title><?php echo $this->title ?></title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/graphics/layout/favicon.ico" />
+	
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+	
+	<link rel="stylesheet" href="/css/admin/default.css" />
+
+	<?php echo $this->styles ?>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script src="/scripts/admin/default.js"></script>
+	
+	<script src="/scripts/modernizr.js"></script>
+	
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap-dropdown.js"></script>
+	
+	<script src="http://cssrefresh.frebsite.nl/js/cssrefresh.js"></script>
+	
+	<?php echo $this->scripts ?>
+
+</head>
+
+<body>
+	
+	<?php $this->__render('layout/admin/nav-top'); ?>
+
+	<div class="container-fluid" id="body-container">
+	
+		<?php if ($this->getUser('admin')): ?>
+		
+			<div class="row-fluid">
+			
+				<?php $this->__render('layout/admin/nav-left'); ?>
+				
+				<div class="span9">
+				
+					<div class="row-fluid">
+					
+						<div class="span12">
+						
+							<?php $this->__render('content'); ?>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+			
+		<?php else: ?>
+		
+			<?php $this->__render('content'); ?>
+		
+		<?php endif; ?>
+	
+	</div>
+
+</body>
+
+</html>

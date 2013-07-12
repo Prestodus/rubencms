@@ -1,0 +1,35 @@
+<?php $user = $this->getUser('admin'); ?>
+
+<div class="span3">
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list">
+			<?php echo $user->getFullname(); ?>
+		</ul>
+	</div>
+	
+	<div class="well sidebar-nav menu-left-accordion">
+	
+		<?php if ($user->acl('Portfolio')): ?>
+		<h3 class="nav-header" data-goto="portfolio">Portfolio</h3>
+		<ul id="portfolio" class="nav nav-list accordion-item">
+			<li><a href="#"><i class="icon-picture"></i> Foto's</a></li>
+			<li><a href="#"><i class="icon-film"></i> Video's</a></li>
+		</ul>
+		<?php endif; ?>
+		
+		<?php if ($user->acl('Webdevelopment')): ?>
+		<h3 class="nav-header" data-goto="webdev">Web development</h3>
+		<ul id="webdev" class="nav nav-list accordion-item">
+			<li><a href="<?php echo $this->createUrl('admin', 'getset', 'index'); ?>"><i class="icon-list"></i> Getters / setters</a></li>
+		</ul>
+		<?php endif; ?>
+		
+		<?php if ($user->acl('Hoofdadministratie')): ?>
+		<h3 class="nav-header" data-goto="headadmin">Hoofdadministratie</h3>
+		<ul id="headadmin" class="nav nav-list accordion-item">
+			<li><a href="<?php echo $this->createUrl('admin', 'headadmin', 'acl'); ?>"><i class="icon-lock"></i> User Control</a></li>
+		</ul>
+		<?php endif; ?>
+		
+	</div>
+</div>
