@@ -3,7 +3,8 @@
 class admin_getsetController extends Base_Controller {
     
     public function indexAction() {
-    	
+		Default_Login::checklogin('admin');
+		
     	if ($this->postVar('names', false)) {
     		$this->view->output = $this->initialize($this->postVar('names', false), $this->postVar('int', false))
 							->generate();
@@ -15,8 +16,9 @@ class admin_getsetController extends Base_Controller {
     	
     }
       
-    public function initialize($names, $ints) { 
-          
+    public function initialize($names, $ints) {
+		Default_Login::checklogin('admin');
+		
         foreach ($names as $key => $value) { 
             if ($value != '') { 
                 if (array_key_exists($key, $ints)) { 
@@ -30,8 +32,9 @@ class admin_getsetController extends Base_Controller {
           
     } 
       
-    public function generate() { 
-          
+    public function generate() {
+		Default_Login::checklogin('admin');
+		
         $outputvars = array(); 
         $outputgetset = array(); 
         foreach ($this->names as $name) { 

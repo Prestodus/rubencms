@@ -36,7 +36,7 @@ class admin_userController extends Base_Controller {
 	}
 	
 	public function profile_editAction() {
-		
+		Default_Login::checklogin('admin');
 	}
 	
 }
