@@ -47,5 +47,28 @@ class Default_Admin_Price_Categories {
 		$this->_date_updated = $_date_updated;
 		return $this;
 	}
+	
+	
+	
+	public function save($parameters = '*') {
+		$db = Db_Conn::connect();
+		$mapper = new Default_Admin_Price_Categories_Mapper();
+		
+		$data = $mapper->make_array($this);
+		
+		if (is_array($parameters)) {
+			$data = $mapper->from_input($data, $parameters);
+		}
+		
+		if ($this->getId()) {
+			$data['fpc_date_updated'] = date('Y-m-d H:i:s', time());
+			$mapper->array_update($data, 'front_price_categories', array('fpc_id', '1'));
+		} else {
+			$data['fpc_date_created'] = date('Y-m-d H:i:s', time());
+			$mapper->array_insert($data, 'front_price_categories');
+			$this->setId($db->lastInsertId());
+		}
+		return $this;
+	}
 
 }

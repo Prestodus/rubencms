@@ -19,7 +19,14 @@ class admin_priceController extends Base_Controller {
 		$subcategories = $this->view->subcategories = $subcategories_proxy->getAll();
 		
 		if ($this->postVars()) {
+			dump($this->postVars(), true);
+			$mapper = new Default_Admin_Price_Categories_Mapper();
+			$object = new Default_Admin_Price_Categories();
+			$object = $mapper->make_array($object);
+			$fields = $mapper->from_input($object, $this->postVars());
+			$data = $mapper->make_object($fields);
 			
+			$data->save();
 		}
 	}
 	

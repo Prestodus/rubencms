@@ -20,7 +20,7 @@ class Default_Admin_Price_Categories_Mapper extends Base_Mapper {
 		return $object;
 	}
 	
-	public function make_array(object $object) {
+	public function make_array($object) {
 		$maps = array(
 			'fpc_id' => 'getId',
 			'fpc_name' => 'getName',
