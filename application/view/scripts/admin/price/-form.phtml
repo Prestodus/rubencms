@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="/css/admin/price.css" />
+
+<div id="clone" class="clone">
+	<select name="item_subcategory[]">
+		<?php foreach ($this->subcategories as $subcategory): ?>
+			<option value="<?php echo $subcategory->getId(); ?>"><?php echo $subcategory->getName(); ?></option>
+		<?php endforeach; ?>
+	</select>
+	<input type="text" name="item_name[]" class="item" />
+	<input type="text" name="item_price[]" class="price" />
+</div>
+
+<form method="POST">
+	<dl>
+		<dt>Naam:</dt>
+		<dd>
+			<input type="text" name="category_name" /><br />
+			<strong style="margin-left: -8px;">Uitleg (optioneel):</strong><br />
+			<input type="text" name="category_description" />
+		</dd>
+	</dl>
+	
+	<dl>
+		<dt>Items:</dt>
+		<dd><div id="items"></div>
+		<a href="#" id="additem"><i class="icon-plus-sign"></i> Item toevoegen</a><br /></dd>
+	</dl>
+
+	<input type="submit" value="Opslaan" />
+</form>
+
+<script>
+$(document).ready(function(){
+	$('#clone.clone').clone().appendTo($('#items')).fadeIn(200, function() {
+		$(this).attr('id', 'cloned');
+	});
+	$('#additem').click(function(){
+		$('#clone.clone').clone().appendTo($('#items')).fadeIn(200, function() {
+			$(this).attr('id', 'cloned');
+		});
+	});
+});
+</script>

@@ -17,6 +17,13 @@
 		</ul>
 		<?php endif; ?>
 		
+		<?php if ($user->acl('Prijslijst')): ?>
+		<h3 class="nav-header" data-goto="pricelist">Prijslijst</h3>
+		<ul id="pricelist" class="nav nav-list accordion-item">
+			<li><a href="<?php echo $this->createUrl('admin', 'price', 'index'); ?>"><i class="icon-list"></i> Prijslijst</a></li>
+		</ul>
+		<?php endif; ?>
+		
 		<?php if ($user->acl('Webdevelopment')): ?>
 		<h3 class="nav-header" data-goto="webdev">Web development</h3>
 		<ul id="webdev" class="nav nav-list accordion-item">

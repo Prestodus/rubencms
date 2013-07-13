@@ -179,3 +179,26 @@ dd {
 .actions i {
 	padding: 0 3px;
 }
+
+
+
+input, textarea {
+	padding: 4px 8px;
+	font-size: 1.2em;
+	-webkit-box-shadow: 3px 3px 15px #888;
+	-moz-box-shadow: 3px 3px 15px #888;
+	box-shadow: 3px 3px 15px #888;
+}
+
+textarea {
+	-webkit-transition: all 0.6s ease;
+	-moz-transition: all 0.6s ease;
+	-o-transition: all 0.6s ease;
+	transition: all 0.6s ease;
+	font-family: Arial, Tahoma, 'Century gothic', sans-serif;
+}
+
+.placeholder {
+	font-weight: normal;
+	color: lightgray;
+}

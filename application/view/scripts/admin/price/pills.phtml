@@ -1,0 +1,4 @@
+<ul class="nav nav-pills">
+	<li<?php if ($this->thisPage('admin', 'price', 'index')) echo ' class="active"' ?>><a href="<?php echo $this->createUrl('admin', 'price', 'index'); ?>">Overzicht</a></li>
+	<li<?php if ($this->thisPage('admin', 'price', 'new')) echo ' class="active"' ?>><a href="<?php echo $this->createUrl('admin', 'price', 'new'); ?>">Nieuw</a></li>
+</ul>

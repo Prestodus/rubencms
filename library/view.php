@@ -52,7 +52,7 @@ class view extends Base_View {
 		
 		}
 		else {
-			
+
 			if (file_exists($viewfolder.str_replace('_', '/', $part).'.phtml')) {
 			
 				include_once($viewfolder.str_replace('_', '/', $part).'.phtml');

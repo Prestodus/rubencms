@@ -1,0 +1,23 @@
+select {
+	width: 150px;
+}
+
+input {
+	width: 400px;
+}
+
+input.item {
+	width: 400px;
+}
+
+input.price {
+	width: 150px;
+}
+
+input[type="submit"] {
+	width: 150px;
+}
+
+#clone.clone {
+	display: none;
+}
